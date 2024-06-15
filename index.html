@@ -5,12 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+    .title {
+      font-weight: bold;
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .label {
+      margin: 8px 0px;
+      font-size: 14px;
+    }
+    #bypass-esty {
+      width: 100%;
+      margin-top: 24px;
+      border: none;
+      outline: none;
+      background-color: #1da1f2;
+      color: #fff;
+      padding: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  </style>
   <body>
-    <button id="bypass-esty" onclick="bypassEsty()">Mở khóa ESTY</button>
+    <div class="wrapper">
+      <div style="margin-top: 100px; margin-left: 100px">
+        <div class="title">Các bước mở khóa ESTY</div>
+        <div class="label">Bước 1: Nhấn nút copy link</div>
+        <div class="label">Bước 2: Dán vào trình duyệt</div>
+        <div class="label">Bước 3: Enter để đi đến trang ESTY</div>
+        <div class="label">Bước 4: Thực hiện mở khóa captcha</div>
+        <button id="bypass-esty" onclick="bypassEsty()">Copy link ESTY</button>
+      </div>
+    </div>
   </body>
   <script>
     function bypassEsty() {
-      window.location.href = "https://www.etsy.com/?ref=lgo/";
+      navigator.clipboard.writeText("https://www.etsy.com/?ref=lgo/");
+      document.getElementById("bypass-esty").innerHTML = "Đã copy link";
+      setTimeout(() => {
+        document.getElementById("bypass-esty").innerHTML = "Copy link ESTY";
+      }, 2000);
     }
   </script>
 </html>
