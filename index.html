@@ -40,10 +40,16 @@
       <div style="margin-top: 100px; margin-left: 100px">
         <div class="title">Các bước mở khóa ESTY</div>
         <div class="label">Bước 1: Nhấn nút copy link</div>
-        <div class="label">Bước 2: Dán vào trình duyệt</div>
+        <div class="label">
+          Bước 2: Mở tab mới, dán link copy vào trình duyệt
+        </div>
         <div class="label">Bước 3: Enter để đi đến trang ESTY</div>
         <div class="label">Bước 4: Thực hiện mở khóa captcha</div>
+        <div class="label">
+          Bước 5: Sau khi vào được trang, quay lại nhấn nút bắt đầu cào
+        </div>
         <button id="bypass-esty" onclick="bypassEsty()">Copy link ESTY</button>
+        <button onclick="crawl()">BẮT ĐẦU CÀO</button>
       </div>
     </div>
   </body>
@@ -54,6 +60,9 @@
       setTimeout(() => {
         document.getElementById("bypass-esty").innerHTML = "Copy link ESTY";
       }, 2000);
+    }
+    function crawl() {
+      window.location.href = "https://www.etsy.com/?ref=lgo";
     }
   </script>
 </html>
