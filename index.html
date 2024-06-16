@@ -16,6 +16,7 @@
       font-size: 20px;
       text-transform: uppercase;
       margin-bottom: 24px;
+      margin-top: 32px;
     }
     .label {
       margin: 8px 0px;
@@ -49,7 +50,20 @@
           Bước 5: Sau khi vào được trang, quay lại nhấn nút bắt đầu cào
         </div>
         <button class="btn" id="bypass-esty" onclick="bypassEsty()">
-          Copy link ESTY
+          Copy link ETSY
+        </button>
+        <div class="title">Các bước mở khóa AMZ</div>
+        <div class="label">Bước 1: Nhấn nút copy link</div>
+        <div class="label">
+          Bước 2: Mở tab mới, dán link copy vào trình duyệt
+        </div>
+        <div class="label">Bước 3: Enter để đi đến trang AMZ</div>
+        <div class="label">Bước 4: Thực hiện về trang HOME</div>
+        <div class="label">
+          Bước 5: Sau khi vào được trang, quay lại nhấn nút bắt đầu cào
+        </div>
+        <button class="btn" id="bypass-amz" onclick="bypassAMZ()">
+          Copy link AMZ
         </button>
         <button class="btn" onclick="crawl()">BẮT ĐẦU CÀO</button>
       </div>
@@ -63,8 +77,15 @@
         document.getElementById("bypass-esty").innerHTML = "Copy link ESTY";
       }, 2000);
     }
+    function bypassAMZ() {
+      navigator.clipboard.writeText("https://www.amazon.com/");
+      document.getElementById("bypass-amz").innerHTML = "Đã copy link";
+      setTimeout(() => {
+        document.getElementById("bypass-amz").innerHTML = "Copy link AMZ";
+      }, 2000);
+    }
     function crawl() {
-      window.location.href = "https://www.etsy.com/?ref=lgo";
+      window.location.href = "https://www.google.com";
     }
   </script>
 </html>
