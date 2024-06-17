@@ -39,12 +39,21 @@
   <body>
     <div class="wrapper">
       <div style="margin-top: 100px; margin-left: 100px">
+        <div id="sss" style="color: red; font-size: 20px; font-weight: 600">
+          Các trang cần mở khóa
+        </div>
+        <p id="etsy" style="color: red"></p>
+        <p id="amz" style="color: red"></p>
         <div class="title">Các bước mở khóa ESTY</div>
         <div class="label">Bước 1: Nhấn nút copy link</div>
         <div class="label">
           Bước 2: Mở tab mới, dán link copy vào trình duyệt
         </div>
         <div class="label">Bước 3: Enter để đi đến trang ESTY</div>
+        <div class="label" style="color: red">
+          Chú ý sau bước 3: Nếu không hiện yêu cầu mở khóa captch => tắt đi chạy
+          lại đến khi hiện captcha thì bắt đầu cào
+        </div>
         <div class="label">Bước 4: Thực hiện mở khóa captcha</div>
         <div class="label">
           Bước 5: Sau khi vào được trang, quay lại nhấn nút bắt đầu cào
@@ -58,7 +67,10 @@
           Bước 2: Mở tab mới, dán link copy vào trình duyệt
         </div>
         <div class="label">Bước 3: Enter để đi đến trang AMZ</div>
-        <div class="label">Bước 4: Thực hiện về trang HOME</div>
+        <div class="label">
+          Bước 4: Nếu có captcha thì thực hiện mở khóa không có thì thực hiện về
+          trang HOME
+        </div>
         <div class="label">Bước 5: Chuyển địa chỉ về US ( mã có 90001 )</div>
         <div class="label">
           Bước 6: Sau khi vào được trang, quay lại nhấn nút bắt đầu cào
@@ -71,6 +83,12 @@
     </div>
   </body>
   <script>
+    if (window.location.href.includes("etsy=true")) {
+      document.getElementById("etsy").innerHTML = "ETSY";
+    }
+    if (window.location.href.includes("amz=true")) {
+      document.getElementById("amz").innerHTML = "AMAZON";
+    }
     function bypassEsty() {
       navigator.clipboard.writeText("https://www.etsy.com/?ref=lgo/");
       document.getElementById("bypass-esty").innerHTML = "Đã copy link";
